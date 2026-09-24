@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshini Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2 class="logo">Darshini</h2>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="themeBtn">🌙</button>
+    </nav>
+</header>
+
+<!-- HOME SECTION -->
+<section id="home">
+
+    <div class="hero">
+
+        <img src="profile.jpeg" class="profile-img" alt="Darshini">
+
+        <h1>Hi, I'm Darshini M</h1>
+
+        <h3>CSE (AI & ML) | Full Stack Developer</h3>
+
+        <p>
+            Passionate about Artificial Intelligence, Flutter,
+            Full Stack Development, Firebase and Generative AI.
+        </p>
+
+        <a href="#contact" class="btn">
+            Hire Me
+        </a>
+
+        <br><br>
+
+        <a href="RESUME.pdf" download class="btn">
+            Download Resume
+        </a>
+
+        <br><br>
+
+        <div class="socials">
+
+            <a href="https://github.com/Darshinimurugasan" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/darshini-m-762105384/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="mailto:mdarshini245@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        I am a Computer Science Engineering (AI & ML) student with
+        interests in Artificial Intelligence, Full Stack Development,
+        Flutter App Development, Firebase and Generative AI.
+        I enjoy building real-world applications and continuously
+        improving my technical skills.
+    </p>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2>Skills</h2>
+
+    <div class="skill-box">Java</div>
+    <div class="skill-box">Python</div>
+    <div class="skill-box">SQL</div>
+    <div class="skill-box">HTML</div>
+    <div class="skill-box">CSS</div>
+    <div class="skill-box">JavaScript</div>
+    <div class="skill-box">Flutter</div>
+    <div class="skill-box">Firebase</div>
+    <div class="skill-box">Git & GitHub</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <h2>Projects</h2>
+
+    <div class="project-card">
+        <h3>Food Trust AI</h3>
+        <p>
+            AI Powered Food Quality Monitoring and Smart Redistribution System
+            using Flutter, Firebase and IBM watsonx.ai.
+        </p>
+    </div>
+
+    <div class="project-card">
+        <h3>Online Food Ordering System</h3>
+        <p>
+            Web-based food ordering platform developed using
+            HTML, CSS, JavaScript and Firebase.
+        </p>
+    </div>
+
+    <div class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>
+            Responsive portfolio website with admin dashboard,
+            contact form and dark/light mode.
+        </p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter Name"
+            required>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            required>
+
+        <textarea
+            id="message"
+            placeholder="Enter Message">
+        </textarea>
+
+        <button type="submit">
+            Submit
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ADMIN LOGIN -->
+<section id="admin">
+
+    <h2>Admin Login</h2>
+
+    <form id="adminForm">
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password">
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+</section>
+
+<!-- RESPONSES -->
+<section id="responsesSection" style="display:none;">
+
+    <h2>User Responses</h2>
+
+    <div id="responsesContainer"></div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Darshini M | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
