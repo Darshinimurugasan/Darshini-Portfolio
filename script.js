@@ -1,164 +1,64 @@
-// ==========================
-// Theme Toggle
-// ==========================
+/* =========================
+   CONTACT FORM SAVE
+========================= */
 
-const themeBtn = document.getElementById("themeBtn");
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbx6mAWn9y3SHC2qFetma5ioK-IcIMFl5tPczRSrkY3hpBuArfWDQCD0tO-tnu1TsOeLUQ/exec";
 
-themeBtn.addEventListener("click", () => {
+const contactForm =
+document.getElementById("contactForm");
 
-    document.body.classList.toggle("light-mode");
+if (contactForm) {
 
-    if (document.body.classList.contains("light-mode")) {
-        themeBtn.innerHTML = "☀️";
-    } else {
-        themeBtn.innerHTML = "🌙";
-    }
+    contactForm.addEventListener(
+        "submit",
+        async function (e) {
 
-});
+            e.preventDefault();
 
-// ==========================
-// Contact Form Save
-// ==========================
+            const data = {
 
-const contactForm = document.getElementById("contactForm");
+                name:
+                document.getElementById("name").value,
 
-contactForm.addEventListener("submit", function (e) {
+                email:
+                document.getElementById("email").value,
 
-    e.preventDefault();
+                message:
+                document.getElementById("message").value,
 
-    const name = document.getElementById("name").value;
+                timestamp:
+                new Date().toLocaleString()
 
-    const email = document.getElementById("email").value;
+            };
 
-    const message = document.getElementById("message").value;
+            try {
 
-    const response = {
-        name: name,
-        email: email,
-        message: message,
-        timestamp: new Date().toLocaleString()
-    };
+                await fetch(
+                    GOOGLE_SCRIPT_URL,
+                    {
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    }
+                );
 
-    let responses =
-        JSON.parse(localStorage.getItem("responses")) || [];
+                alert(
+                    "Message Sent Successfully!"
+                );
 
-    responses.push(response);
+                contactForm.reset();
 
-    localStorage.setItem(
-        "responses",
-        JSON.stringify(responses)
+            } catch (error) {
+
+                alert(
+                    "Error Sending Message"
+                );
+
+                console.log(error);
+
+            }
+
+        }
     );
 
-    alert("Response Saved Successfully!");
-
-    contactForm.reset();
-
-});
-
-// ==========================
-// Admin Login
-// ==========================
-
-const adminForm = document.getElementById("adminForm");
-
-adminForm.addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    const username =
-        document.getElementById("username").value;
-
-    const password =
-        document.getElementById("password").value;
-
-    if (username === "admin" &&
-        password === "1234") {
-
-        document.getElementById("admin")
-            .style.display = "none";
-
-        document.getElementById("responsesSection")
-            .style.display = "block";
-
-        loadResponses();
-
-    } else {
-
-        alert("Invalid Username or Password");
-
-    }
-
-});
-
-// ==========================
-// Load Responses
-// ==========================
-
-function loadResponses() {
-
-    let responses =
-        JSON.parse(localStorage.getItem("responses")) || [];
-
-    const container =
-        document.getElementById("responsesContainer");
-
-    container.innerHTML = "";
-
-    responses.forEach((item) => {
-
-        container.innerHTML += `
-
-        <div class="response-card">
-
-            <h3>${item.name}</h3>
-
-            <p>
-                <strong>Email:</strong>
-                ${item.email}
-            </p>
-
-            <p>
-                ${item.message}
-            </p>
-
-            <small>
-                ${item.timestamp}
-            </small>
-
-        </div>
-
-        `;
-
-    });
-
 }
-
-// ==========================
-// Smooth Scroll
-// ==========================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        document.querySelector(
-            this.getAttribute("href")
-        ).scrollIntoView({
-            behavior: "smooth"
-        });
-
-    });
-
-});
-
-// ==========================
-// Page Load Message
-// ==========================
-
-window.onload = function () {
-
-    console.log("Portfolio Website Loaded Successfully");
-
-};
